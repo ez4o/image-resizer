@@ -146,16 +146,20 @@
 		</div>
 
 		<div class="flex flex-row flex-wrap mt-6 w-full">
-			<input
-				class="flex-1 shadow-md rounded px-2 py-2 border-2 border-gray-300 bg-gray-50 mr-4"
-				type="number"
-				bind:value={width}
-			/>
-			<input
-				class="flex-1 shadow-md rounded px-2 py-2 border-2 border-gray-300 bg-gray-50 mr-4"
-				type="number"
-				bind:value={height}
-			/>
+			<div class="flex-1 mr-4" data-tooltip="width (-1 means to the keep aspect ratio)">
+				<input
+					class="shadow-md rounded px-2 py-2 border-2 border-gray-300 bg-gray-50 w-full"
+					type="number"
+					bind:value={width}
+				/>
+			</div>
+			<div class="flex-1 mr-4" data-tooltip="height (-1 means to the keep aspect ratio)">
+				<input
+					class="shadow-md rounded px-2 py-2 border-2 border-gray-300 bg-gray-50  w-full"
+					type="number"
+					bind:value={height}
+				/>
+			</div>
 
 			<button
 				class="flex-1 shadow-md bg-gradient-to-l from-orange-600 via-red-500 to-pink-400 opacity-90 text-white font-bold py-2 px-4 rounded"
@@ -169,3 +173,65 @@
 		</div>
 	</div>
 </div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+	[data-tooltip] {
+		position: relative;
+		z-index: 2;
+		display: block;
+	}
+
+	[data-tooltip]:before,
+	[data-tooltip]:after {
+		visibility: hidden;
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.2s ease-out;
+		transform: translate(-50%, 5px);
+	}
+
+	[data-tooltip]:before {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-bottom: 5px;
+		padding: 7px;
+		width: 100%;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		background-color: #444c;
+		color: #fff;
+		content: attr(data-tooltip);
+		text-align: center;
+		font-size: 14px;
+		line-height: 1.5;
+		transition: 0.2s ease-out;
+	}
+
+	[data-tooltip]:after {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		width: 0;
+		border-top: 5px solid #444c;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		content: "";
+		font-size: 0;
+		line-height: 0;
+	}
+
+	[data-tooltip]:hover:before,
+	[data-tooltip]:hover:after {
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+</style>

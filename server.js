@@ -3,10 +3,10 @@ import express from 'express';
 
 const app = express();
 
-app.use(function(_, res, next) {
-    res.header("Cross-Origin-Embedder-Policy", "require-corp");
-    res.header("Cross-Origin-Opener-Policy", "same-origin");
-    next();
+app.use(function (_, res, next) {
+	res.header('Cross-Origin-Embedder-Policy', 'require-corp');
+	res.header('Cross-Origin-Opener-Policy', 'same-origin');
+	next();
 });
 
 app.use(handler);
