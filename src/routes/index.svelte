@@ -2,25 +2,23 @@
 	import '../app.css';
 	import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 
-	let file: File | null | undefined = null;
+	let file: File | null = null;
 
 	let width = -1;
 	let height = -1;
 
-	$: canConvert = false;
-
 	async function convert() {
-		if (!validateFile()) {
+		if (file === null) {
 			return;
 		}
 
-		const inputFileName = file!.name;
+		const inputFileName = file.name;
 		const outputFileName: string = inputFileName.replace(/\.([^.]+)$/, '-resized.$1');
 
 		const ffmpeg = createFFmpeg();
 		await ffmpeg.load();
 
-		ffmpeg.FS('writeFile', inputFileName, await fetchFile(file!));
+		ffmpeg.FS('writeFile', inputFileName, await fetchFile(file));
 
 		await ffmpeg.run('-i', inputFileName, '-vf', `scale=${width}:${height}`, outputFileName);
 
@@ -29,7 +27,7 @@
 		const linkEl = document.createElement('a');
 		linkEl.href = URL.createObjectURL(
 			new Blob([data.buffer], {
-				type: file!.type
+				type: file.type
 			})
 		);
 		linkEl.download = outputFileName;
@@ -55,10 +53,9 @@
 	function onDrop(event: DragEvent) {
 		dropZone.classList.remove('bg-gray-100');
 
-		file = event.dataTransfer?.files?.item(0);
+		file = validateFile((event.target as HTMLInputElement).files?.item(0));
 
-		canConvert = validateFile();
-		if (!canConvert) {
+		if (file === null) {
 			return;
 		}
 
@@ -66,33 +63,35 @@
 	}
 
 	function onFileInputChange(event: Event) {
-		file = (event.target as HTMLInputElement).files?.item(0);
+		file = validateFile((event.target as HTMLInputElement).files?.item(0));
 
-		canConvert = validateFile();
-		if (!canConvert) {
+		if (file === null) {
 			return;
 		}
 
 		showPreview();
 	}
 
-	function validateFile(): boolean {
+	function validateFile(file: File | null | undefined): File | null {
 		if (file === null || file === undefined) {
-			return false;
+			return null;
 		}
 
 		if (!file.type.startsWith('image/')) {
-			return false;
+			return null;
 		}
 
-		return true;
+		return file;
 	}
 
 	function showPreview() {
+		if (file === null) {
+			return;
+		}
 		previewSection.classList.remove('hidden');
 		dropZoneContent.classList.add('hidden');
 
-		previewSection.src = URL.createObjectURL(file!);
+		previewSection.src = URL.createObjectURL(file);
 	}
 </script>
 
@@ -163,9 +162,9 @@
 
 			<button
 				class="flex-1 shadow-md bg-gradient-to-l from-orange-600 via-red-500 to-pink-400 opacity-90 text-white font-bold py-2 px-4 rounded"
-				class:opacity-40={!canConvert}
-				class:hover:opacity-100={canConvert}
-				disabled={!canConvert}
+				class:opacity-40={file === null}
+				class:hover:opacity-100={file !== null}
+				disabled={file === null}
 				on:click={convert}
 			>
 				CONVERT
@@ -175,11 +174,11 @@
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-    * {
-        font-family: 'Montserrat', sans-serif;
-    }
+	* {
+		font-family: 'Montserrat', sans-serif;
+	}
 
 	[data-tooltip] {
 		position: relative;
@@ -223,7 +222,7 @@
 		border-top: 5px solid #444c;
 		border-right: 5px solid transparent;
 		border-left: 5px solid transparent;
-		content: "";
+		content: '';
 		font-size: 0;
 		line-height: 0;
 	}
