@@ -53,7 +53,7 @@
 	function onDrop(event: DragEvent) {
 		dropZone.classList.remove('bg-gray-100');
 
-		file = validateFile((event.target as HTMLInputElement).files?.item(0));
+		file = validateFile(event.dataTransfer?.files?.item(0));
 
 		if (file === null) {
 			return;
