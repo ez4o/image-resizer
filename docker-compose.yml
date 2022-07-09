@@ -4,4 +4,4 @@ services:
   image-resizer:
     image: wst24365888/image-resizer:latest
     ports:
-      - "3000:3000"
+      - '3000:3000'
