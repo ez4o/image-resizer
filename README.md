@@ -47,7 +47,7 @@
 
 `image-resizer` is an online tool for resizing image. Supports multiple images.
 
-It uses [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm), which means the conversions are done entirely in the user's browser.\
+It uses [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm), which means the conversions are done entirely in the user's browser.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
