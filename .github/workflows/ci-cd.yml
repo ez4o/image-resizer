@@ -22,7 +22,9 @@ jobs:
         run: pnpm i
 
       - name: Execute Test
-        run: pnpm run test
+        run: |
+          pnpm run install-test-browser
+          pnpm run test
 
   push:
     needs: test

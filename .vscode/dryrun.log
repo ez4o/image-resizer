@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make.exe: Entering directory `c:/Users/wst24365888/SynologyDrive/ez4o/image-resizer'
+pnpm run build && docker build -t wst24365888/image-resizer:latest .
+docker compose up -d
+make.exe: Leaving directory `c:/Users/wst24365888/SynologyDrive/ez4o/image-resizer'
+ 

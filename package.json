@@ -9,7 +9,7 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync",
 		"test": "playwright test",
-		"test-browser-install": "playwright install",
+		"install-test-browser": "playwright install",
 		"test-gen": "playwright codegen localhost:3000 --output ./tests/test.ts",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",

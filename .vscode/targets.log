@@ -1,0 +1,378 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-pc-mingw32
+ 
+
+# Make data base, printed on Sat Jul 09 16:05:46 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile
+MAKEFLAGS = Rrqp
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+HOMEDRIVE = C:
+# automatic
+@F = $(notdir $@)
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile
+CURDIR := c:/Users/wst24365888/SynologyDrive/ez4o/image-resizer
+# default
+SHELL := sh.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+V 
+SCODE_NLS_CONFIG = {"locale":"zh-tw","availableLanguages":{},"_languagePackSupport":true}
+# environment
+ONEDRIVE = C:\Users\wst24365888\OneDrive
+# makefile (from `makefile', line 1)
+IMAGE_NAME = wst24365888/image-resizer
+# environment
+USERPROFILE = C:\Users\wst24365888
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# makefile (from `makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# environment
+TMP = C:\Users\WST243~1\AppData\Local\Temp
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+VSCODE_CWD = C:\Users\wst24365888\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHROME_EXECUTABLE = C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+# environment
+PATH = C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Go\bin;C:\Program Files\nodejs\;C:\Users\wst24365888\.cargo\bin;C:\Users\wst24365888\AppData\Local\pnpm;C:\Users\wst24365888\Anaconda3;C:\Users\wst24365888\Anaconda3\Library\mingw-w64\bin;C:\Users\wst24365888\Anaconda3\Library\usr\bin;C:\Users\wst24365888\Anaconda3\Library\bin;C:\Users\wst24365888\Anaconda3\Scripts;C:\Users\wst24365888\AppData\Local\Microsoft\WindowsApps;C:\Users\wst24365888\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\wst24365888\AppData\Local\Programs\oh-my-posh\bin;C:\Users\wst24365888\AppData\Local\GitHubDesktop\bin;C:\MinGW\bin;C:\Users\wst24365888\AppData\Roaming\Python\Python39\Scripts;C:\Users\wst24365888\.local\bin;C:\flutter\bin;C:\Users\wst24365888\AppData\Local\Android\Sdk\cmdline-tools\latest\bin;C:\Users\wst24365888\go\bin;C:\make\bin;C:\Users\wst24365888\AppData\Roaming\npm;C:\ffmpeg\bin;C:\gifsicle;C:\Program Files\Graphviz\bin;C:\Java\jdk-18.0.1.1\bin;
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+PNPM_HOME = C:\Users\wst24365888\AppData\Local\pnpm
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+GOPATH = C:\Users\wst24365888\go
+# environment
+NUMBER_OF_PROCESSORS = 12
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives
+# automatic
+%F = $(notdir $%)
+# environment
+POSH_THEMES_PATH = C:\Users\wst24365888\AppData\Local\Programs\oh-my-posh\themes
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15168_DCOFADYNHMYUNPJK
+# environment
+COMPUTERNAME = DESKTOP-4AH5F4E
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+USERDNSDOMAIN = office365.ncu.edu.tw
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERNAME = wst24365888
+# environment
+PUBLIC = C:\Users\Public
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\wst24365888\AppData\Roaming\Code\CachedData\92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environment
+LOGONSERVER = \\DESKTOP-4AH5F4E
+# environment
+ONEDRIVECONSUMER = C:\Users\wst24365888\OneDrive
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+USERDOMAIN = OFFICE365
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# default
+MAKE_VERSION := 3.81
+# makefile
+.DEFAULT_GOAL := all
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LOCALAPPDATA = C:\Users\wst24365888\AppData\Local
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+# environment
+OS = Windows_NT
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\b29619562813c6fe0058cd042cdc400d-1.69.0-main-sock
+# environment
+HOMEPATH = \Users\wst24365888
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+PROMPT = $P$G
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+SYSTEMROOT = C:\WINDOWS
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+APPDATA = C:\Users\wst24365888\AppData\Roaming
+# environment
+__COMPAT_LAYER = DetectorsAppHealth
+# environment
+TEMP = C:\Users\WST243~1\AppData\Local\Temp
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SYSTEMDRIVE = C:
+# environment
+SESSIONNAME = Console
+# environment
+PROCESSOR_REVISION = 7100
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+PROCESSOR_LEVEL = 23
+# environment
+VSCODE_PID = 15168
+# environment
+USERDOMAIN_ROAMINGPROFILE = OFFICE365
+# variable set hash-table stats:
+# Load=89/1024=9%, Rehash=0, Collisions=10/112=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# C:\Users\wst24365888\AppData\Local\Programs\Microsoft VS Code\bin (key C:/Users/wst24365888/AppData/Local/Programs/Microsoft VS Code/bin, mtime 1657288456): 4 files, no impossibilities.
+# C:\flutter\bin (key C:/flutter/bin, mtime 1652591735): 9 files, no impossibilities.
+# C:\Users\wst24365888\AppData\Roaming\Python\Python39\Scripts (key C:/Users/wst24365888/AppData/Roaming/Python/Python39/Scripts, mtime 1654615446): 7 files, no impossibilities.
+# C:\Users\wst24365888\Anaconda3\Library\bin (key C:/Users/wst24365888/Anaconda3/Library/bin, mtime 1652845975): 451 files, no impossibilities.
+# C:\Program Files\Docker\Docker\resources\bin (key C:/Program Files/Docker/Docker/resources/bin, mtime 1651586251): 13 files, no impossibilities.
+# C:\Program Files\Go\bin (key C:/Program Files 
+/Go/bin, mtime 1652333838): 4 files, no impossibilities.
+# C:\Users\wst24365888\AppData\Roaming\npm (key C:/Users/wst24365888/AppData/Roaming/npm, mtime 1652335253): 9 files, no impossibilities.
+# C:\make\bin (key C:/make/bin, mtime 1652334582): 5 files, no impossibilities.
+# C:\Users\wst24365888\Anaconda3 (key C:/Users/wst24365888/Anaconda3, mtime 1652845975): 89 files, no impossibilities.
+# C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1651509029): 32 files, no impossibilities.
+# C:\WINDOWS\System32\Wbem (key C:/WINDOWS/System32/Wbem, mtime 1655403375): 172 files, no impossibilities.
+# . (key c:/Users/wst24365888/SynologyDrive/ez4o/image-resizer, mtime 1657353945): 29 files, no impossibilities.
+# C:\Users\wst24365888\AppData\Local\Android\Sdk\cmdline-tools\latest\bin (key C:/Users/wst24365888/AppData/Local/Android/Sdk/cmdline-tools/latest/bin, mtime 1652171125): 9 files, no impossibilities.
+# C:\Users\wst24365888\AppData\Local\Programs\oh-my-posh\bin (key C:/Users/wst24365888/AppData/Local/Programs/oh-my-posh/bin, mtime 1653405949): 3 files, no impossibilities.
+# C:\Users\wst24365888\.cargo\bin (key C:/Users/wst24365888/.cargo/bin, mtime 1656668488): 17 files, no impossibilities.
+# C:\ffmpeg\bin (key C:/ffmpeg/bin, mtime 1652369635): 5 files, no impossibilities.
+# C:\Program Files\nodejs\ (key C:/Program Files/nodejs/, mtime 1652335185): 13 files, no impossibilities.
+# C:\Users\wst24365888\AppData\Local\GitHubDesktop\bin (key C:/Users/wst24365888/AppData/Local/GitHubDesktop/bin, mtime 1651518258): 4 files, no impossibilities.
+# C:\Users\wst24365888\Anaconda3\Library\usr\bin: could not be stat'd.
+# C:\Users\wst24365888\AppData\Local\Microsoft\WindowsApps (key C:/Users/wst24365888/AppData/Local/Microsoft/WindowsApps, mtime 1656769397): 26 files, no impossibilities.
+# C:\MinGW\bin (key C:/MinGW/bin, mtime 1651566955): 56 files, no impossibilities.
+# C:\Users\wst24365888\AppData\Local\pnpm (key C:/Users/wst24365888/AppData/Local/pnpm, mtime 1657348928): 8 files, 
+ no impossibilities.
+# C:\Users\wst24365888\Anaconda3\Scripts (key C:/Users/wst24365888/Anaconda3/Scripts, mtime 1653445495): 344 files, no impossibilities.
+# C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
+# C:\Users\wst24365888\Anaconda3\Library\mingw-w64\bin (key C:/Users/wst24365888/Anaconda3/Library/mingw-w64/bin, mtime 1651576918): 15 files, no impossibilities.
+# C:\WINDOWS (key C:/WINDOWS, mtime 1655403374): 110 files, no impossibilities.
+# C:\gifsicle (key C:/gifsicle, mtime 1652411823): 5 files, no impossibilities.
+# C:\Java\jdk-18.0.1.1\bin (key C:/Java/jdk-18.0.1.1/bin, mtime 1654366179): 124 files, no impossibilities.
+# C:\Users\wst24365888\.local\bin (key C:/Users/wst24365888/.local/bin, mtime 1654615686): 3 files, no impossibilities.
+# C:\ProgramData\DockerDesktop\version-bin: could not be stat'd.
+# C:\Program Files\Git\cmd (key C:/Program Files/Git/cmd, mtime 1651518179): 8 files, no impossibilities.
+# C:\WINDOWS\system32 (key C:/WINDOWS/system32, mtime 1657034792): 2922 files, no impossibilities.
+# C:\Program Files\Graphviz\bin (key C:/Program Files/Graphviz/bin, mtime 1652725899): 61 files, no impossibilities.
+# C:\Users\wst24365888\go\bin (key C:/Users/wst24365888/go/bin, mtime 1656488952): 10 files, no impossibilities.
+
+# 4567 files, no impossibilities in 34 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+all: build up
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+.PHONY: all build up down deploy push pull restart
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+up:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File doe 
+s not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 11):
+	@docker compose up -d
+	
+
+push:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 19):
+	@docker push $(IMAGE_NAME):latest
+	
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-09 13:28:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+build:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  commands to execute (from `makefile', line 8):
+	@pnpm run build && docker build -t $(IMAGE_NAME):latest .
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+pull:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 22):
+	@docker pull $(IMAGE_NAME):latest
+	
+
+restart: p 
+ull down up
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+deploy: build push
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+down:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 14):
+	@docker compose down
+	
+
+# files hash-table stats:
+# Load=12/1024=1%, Rehash=0, Collisions=0/40=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Sat Jul 09 16:05:46 2022
+
+ 
