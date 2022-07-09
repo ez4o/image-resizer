@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+
+[data-tooltip] {
+	@apply relative z-10 block;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+	@apply invisible opacity-0 pointer-events-none transition duration-200 ease-out transform translate-x-[-50%] translate-y-[5px];
+}
+
+[data-tooltip]:before {
+	@apply absolute bottom-full left-1/2 mb-[5px] p-[7px] w-full rounded bg-[#444c] text-white text-center text-sm leading-normal content-[attr(data-tooltip)] transition duration-200 ease-out;
+}
+[data-tooltip]:after {
+	@apply absolute bottom-full left-1/2 w-0 border-t-[#444c] border-t-[5px] border-r-transparent border-r-[5px] border-l-transparent border-l-[5px] content-[''];
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+	@apply visible opacity-100 transform translate-x-[-50%] translate-y-0;
+}
