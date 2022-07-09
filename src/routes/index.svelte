@@ -10,6 +10,10 @@
 	let loading = false;
 
 	async function convert() {
+		if (loading) {
+			return;
+		}
+
 		if (files === null) {
 			return;
 		}
