@@ -2,41 +2,47 @@
 	import '../app.css';
 	import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 
-	let file: File | null = null;
+	let files: File[] = [];
 
 	let width = -1;
 	let height = -1;
 
+	let loading = false;
+
 	async function convert() {
-		if (file === null) {
+		if (files === null) {
 			return;
 		}
 
-		const inputFileName = file.name;
-		const outputFileName: string = inputFileName.replace(/\.([^.]+)$/, '-resized.$1');
+		loading = true;
 
-		const ffmpeg = createFFmpeg();
-		await ffmpeg.load();
+		for (const file of files) {
+			const inputFileName = file.name;
+			const outputFileName: string = inputFileName.replace(/\.([^.]+)$/, '-resized.$1');
 
-		ffmpeg.FS('writeFile', inputFileName, await fetchFile(file));
+			const ffmpeg = createFFmpeg();
+			await ffmpeg.load();
 
-		await ffmpeg.run('-i', inputFileName, '-vf', `scale=${width}:${height}`, outputFileName);
+			ffmpeg.FS('writeFile', inputFileName, await fetchFile(file));
 
-		const data = await ffmpeg.FS('readFile', outputFileName);
+			await ffmpeg.run('-i', inputFileName, '-vf', `scale=${width}:${height}`, outputFileName);
 
-		const linkEl = document.createElement('a');
-		linkEl.href = URL.createObjectURL(
-			new Blob([data.buffer], {
-				type: file.type
-			})
-		);
-		linkEl.download = outputFileName;
-		linkEl.click();
+			const data = await ffmpeg.FS('readFile', outputFileName);
+
+			const linkEl = document.createElement('a');
+			linkEl.href = URL.createObjectURL(
+				new Blob([data.buffer], {
+					type: file.type
+				})
+			);
+			linkEl.download = outputFileName;
+			linkEl.click();
+		}
+
+		loading = false;
 	}
 
 	let dropZone: HTMLElement;
-	let dropZoneContent: HTMLElement;
-	let previewSection: HTMLImageElement;
 
 	function onDragEnter() {
 		dropZone.classList.add('bg-gray-100');
@@ -53,45 +59,37 @@
 	function onDrop(event: DragEvent) {
 		dropZone.classList.remove('bg-gray-100');
 
-		file = validateFile(event.dataTransfer?.files?.item(0));
+		files = validateFile(event.dataTransfer?.files);
 
-		if (file === null) {
+		if (files == []) {
 			return;
 		}
-
-		showPreview();
 	}
 
 	function onFileInputChange(event: Event) {
-		file = validateFile((event.target as HTMLInputElement).files?.item(0));
+		files = validateFile((event.target as HTMLInputElement).files);
 
-		if (file === null) {
+		if (files == []) {
 			return;
 		}
-
-		showPreview();
 	}
 
-	function validateFile(file: File | null | undefined): File | null {
-		if (file === null || file === undefined) {
-			return null;
+	function validateFile(files: FileList | null | undefined): File[] {
+		const result: File[] = [];
+
+		if (files === null || files === undefined) {
+			return result;
 		}
 
-		if (!file.type.startsWith('image/')) {
-			return null;
+		for (let i = 0; i < files.length; i++) {
+			const file = files[i];
+
+			if (file.type.startsWith('image/')) {
+				result.push(file);
+			}
 		}
 
-		return file;
-	}
-
-	function showPreview() {
-		if (file === null) {
-			return;
-		}
-		previewSection.classList.remove('hidden');
-		dropZoneContent.classList.add('hidden');
-
-		previewSection.src = URL.createObjectURL(file);
+		return result;
 	}
 </script>
 
@@ -119,7 +117,7 @@
 			>
 				<div
 					class="flex flex-col justify-center items-center pt-5 pb-6"
-					bind:this={dropZoneContent}
+					class:hidden={files.length > 0}
 				>
 					<svg
 						class="mb-3 w-10 h-10 text-gray-400"
@@ -139,8 +137,16 @@
 					</p>
 					<p class="text-xs text-gray-500 dark:text-gray-400">Support any type of image.</p>
 				</div>
-				<input id="file-input" type="file" class="hidden" on:change={onFileInputChange} />
-				<img class="hidden h-96 object-scale-down" src="" alt="" bind:this={previewSection} />
+				<input multiple id="file-input" type="file" class="hidden" on:change={onFileInputChange} />
+				<div
+					class="flex flex-row overflow-y-hidden"
+					class:hidden={files.length == 0}
+					class:overflow-x-scroll={files.length > 1}
+				>
+					{#each files as file}
+						<img class="h-96 object-scale-down" src={URL.createObjectURL(file)} alt={file.name} />
+					{/each}
+				</div>
 			</label>
 		</div>
 
@@ -160,15 +166,18 @@
 				/>
 			</div>
 
-			<button
-				class="flex-1 shadow-md bg-gradient-to-l from-orange-600 via-red-500 to-pink-400 opacity-90 text-white font-bold py-2 px-4 rounded"
-				class:opacity-40={file === null}
-				class:hover:opacity-100={file !== null}
-				disabled={file === null}
-				on:click={convert}
-			>
-				CONVERT
-			</button>
+			<div class="flex-1 relative">
+				<div class="absolute bg-[#4448] w-full h-full z-10 rounded" class:hidden={!loading} />
+				<button
+					class="w-full h-full shadow-md bg-gradient-to-l from-orange-600 via-red-500 to-pink-400 opacity-90 text-white font-bold py-2 px-4 rounded"
+					class:opacity-40={files.length == 0}
+					class:hover:opacity-100={files.length > 0}
+					disabled={files.length == 0}
+					on:click={convert}
+				>
+					{loading ? 'PROCESSING' : 'CONVERT'}
+				</button>
+			</div>
 		</div>
 	</div>
 </div>
